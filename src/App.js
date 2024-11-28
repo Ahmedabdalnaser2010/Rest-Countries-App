@@ -3,7 +3,7 @@ import Body from './components/Body';
 import Header from './components/Header';
 import TopArrowButton from './components/TopArrowButton';
 import Country from './components/Country'
-import { Route, Routes } from 'react-router';
+import { Route, Routes, Navigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
 
@@ -24,7 +24,8 @@ function App() {
       <Header isDark={isDarkMode} setIsDark={setIsDarkMode} />
       <Routes>
         <Route path='/' element={<Body isDark={isDarkMode} />} />
-        <Route path='/Country/:name' element={<Country isDark={isDarkMode} />} children={<Route path='/Country/:name' element={<Country />} />} />
+        <Route path='/Country/:name' element={<Country isDark={isDarkMode} />} />
+        <Route path='/Rest-Countries-App' element={<Navigate to="/" replace />} />
       </Routes>
       <TopArrowButton isDark={isDarkMode} />
 
@@ -35,3 +36,4 @@ function App() {
 }
 
 export default App;
+// children={<Route path='/Country/:name' element={<Country />} />}
