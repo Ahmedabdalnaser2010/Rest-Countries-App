@@ -1,0 +1,77 @@
+.title:not(:first-child) {
+    font-size: 0.97em;
+    font-weight: 450;
+
+}
+
+.title:first-child {
+    font-weight: 700;
+    margin-bottom: 1em;
+
+}
+
+
+.dropdown-item:hover {
+    color: hsl(207, 26%, 17%) !important;
+    background-color: white !important;
+    -o-transition: 0.3s;
+    -webkit-transition: 0.3s;
+    -moz-transition: 0.3s;
+    -ms-transition: 0.3s;
+    transition: 0.3s;
+
+
+}
+
+.dropdown-item.activ:hover {
+    color: hsl(0, 0%, 98%) !important;
+    background-color: hsl(209, 23%, 22%) !important;
+}
+
+.main-data span {
+
+    padding: 0.25em 0;
+    min-width: 180px;
+    max-width: 50%;
+}
+
+@media (max-width:767px) {
+    .main-data {
+        display: block !important;
+        width: 100%;
+        text-align: left;
+        height: fit-content;
+        margin: 8em 0 2em 0;
+    }
+
+    .main-data .flag {
+        width: 90% !important;
+        text-align: center;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 1.5em 0;
+
+
+    }
+
+    .main-data .info {
+        width: 100% !important;
+        font-size: 0.7em !important;
+    }
+
+    .main-data .data {
+        flex-direction: column;
+        height: fit-content;
+        max-height: 500px !important;
+    }
+
+    .main-data span {
+        max-width: 100% !important;
+
+    }
+
+    .country-container {
+        max-height: 120vh !important;
+    }
+}

@@ -1,24 +1,36 @@
-import logo from './logo.svg';
 import './App.css';
+import Body from './components/Body';
+import Header from './components/Header';
+import TopArrowButton from './components/TopArrowButton';
+import Country from './components/Country'
+import { Route, Routes } from 'react-router';
+import { useEffect, useState } from 'react';
+
 
 function App() {
+
+  console.log(localStorage.getItem("isDark"))
+  const getStoredTheme = () => localStorage.getItem("isDark") ? JSON.parse(localStorage.getItem("isDark")) : false
+
+  const [isDarkMode, setIsDarkMode] = useState(getStoredTheme)
+
+  useEffect(() => {
+    localStorage.setItem("isDark", JSON.stringify(isDarkMode))
+
+  }, [isDarkMode])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header isDark={isDarkMode} setIsDark={setIsDarkMode} />
+      <Routes>
+        <Route path='/' element={<Body isDark={isDarkMode} />} />
+        <Route path='/Country/:name' element={<Country isDark={isDarkMode} />} children={<Route path='/Country/:name' element={<Country />} />} />
+      </Routes>
+      <TopArrowButton isDark={isDarkMode} />
+
+
+
+    </>
   );
 }
 
